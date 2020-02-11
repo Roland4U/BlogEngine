@@ -45,3 +45,5 @@ class TagEdit(ObjEditMix, View):
     model = Tag
     form = TagForm
     template = 'blog/edit_tag_form.html'
+
+    
