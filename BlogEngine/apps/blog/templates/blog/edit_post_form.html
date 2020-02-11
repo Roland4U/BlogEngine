@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <div class="container mt-5">
+            <form action="{{ post.get_edit_url }}" method="post">{% csrf_token %}
+                {% for field in form %}
+                    <div class="form-group">
+                        {{ field.label }}
+                        {{ field }}
+                    </div>
+                    
+                    
+                {% endfor %}
+                <button type="submit" class="btn btn-primary">Submit</button>
+            </form>
+            
+    </div>
+{% endblock content %}
