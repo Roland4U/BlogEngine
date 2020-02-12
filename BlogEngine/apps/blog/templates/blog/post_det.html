@@ -8,15 +8,26 @@
             <p>{{ post.body }}</p><br>
             <span>{{ post.pub_date }}</span><br>
             <span>{{ post.autor|title }}</span><br>
-            {% if post.tags.all %}
-          <div class="btn-group" role="group" aria-label="Basic example">
-          <span>Tags:&nbsp;</span>
-            {% for tag in post.tags.all %}
-                <button type="button" class="btn btn-outline-success btn-sm">{{ tag.title }}</button>
-            {% endfor %}
-        </div>
+        {% if post.tags.all %}
+            <div class="btn-group" role="group" aria-label="Basic example">
+                <span>Tags:&nbsp;</span>
+                {% for tag in post.tags.all %}
+                    <button type="button" class="btn btn-outline-success btn-sm">{{ tag.title }}</button>
+                {% endfor %}
+            </div>
         <br>
         {% endif %}
+
+        
+        {% if comments %}
+            {% for comment in comments %}
+                <strong>{{ comment.autor }}</strong>
+                <p>{{ comment.comment_text }}</p>
+            {% endfor %}
+        {% endif %}
+            
+        {% endif %}
+            
 
     </div>
 {% endblock content %}

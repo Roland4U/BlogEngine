@@ -15,6 +15,8 @@ class PostList(ObjListMix, View):
 class PostDet(ObjDetMix, View):
     model = Post
     template = 'blog/post_det.html'
+    com = True
+
 
 class PostCreate(ObjCreateMix, View):
     form = PostForm

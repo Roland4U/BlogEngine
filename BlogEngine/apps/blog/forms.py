@@ -60,15 +60,15 @@ class PostForm(forms.ModelForm):
 
         }
     
-class CommentForm(forms.ModelForm):
-    class Meta:
+# class CommentForm(forms.ModelForm):
+#     class Meta:
         
-        atrs = {'class': 'form-control'}
+#         atrs = {'class': 'form-control'}
         
-        model = Comment
-        fields = ['autor', 'comment']
+#         model = Comment
+#         fields = ['autor', 'comment']
 
-        widgets = {
-            'autor': forms.TextInput(attrs=atrs),
-            'comment': forms.Textarea(attrs=atrs)
-        }
+#         widgets = {
+#             'autor': forms.TextInput(attrs=atrs),
+#             'comment': forms.Textarea(attrs=atrs)
+#         }

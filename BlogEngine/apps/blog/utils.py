@@ -11,10 +11,23 @@ class ObjListMix:
 class ObjDetMix:
     model = None
     template = None
+    com = False
+
 
     def get(self, request, slug):
         obj = self.model.objects.get(slug__iexact=slug)
-        return render(request, self.template, context={self.model.__name__.lower(): obj})
+        con = None
+        comment_list = None
+        if self.com:
+            con = {self.model.__name__.lower(): obj}
+            comment_list = obj.comment_set.order_by('-id')
+            con['comments'] = comment_list
+            return con
+        else:
+            con = {self.model.__name__.lower(): obj}
+            return con
+
+        return render(request, self.template, context=con)
 
 class ObjCreateMix:
     form = None
