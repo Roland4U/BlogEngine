@@ -1,4 +1,5 @@
 from django.shortcuts import render, redirect
+from .models import Comment
 
 class ObjListMix:
     model = None
@@ -22,7 +23,7 @@ class ObjDetMix:
             con = {self.model.__name__.lower(): obj}
             comment_list = obj.comment_set.order_by('-id')
             con['comments'] = comment_list
-            return con
+            # return con
         else:
             con = {self.model.__name__.lower(): obj}
             return con

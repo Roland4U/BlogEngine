@@ -3,6 +3,7 @@ from django.urls import reverse
 # from django.core.urlresolvers import reverse
 from django.utils.text import slugify
 from time import time
+from django.contrib.auth.models import User
 
 def gen_slug(s):
     new_slug = slugify(s, allow_unicode=True)
@@ -37,8 +38,8 @@ class Post(models.Model):
     
 
 class Comment(models.Model):
-    post = models.ForeignKey("blog.Post", on_delete=models.CASCADE)
-    autor = models.CharField(max_length=50)
+    post = models.ForeignKey(Post, on_delete=models.CASCADE)
+    autor = models.ForeignKey(User, default=None, on_delete=models.CASCADE)
     comment_text = models.TextField(db_index=True)
     pub_date = models.DateTimeField(auto_now_add=True)
 

@@ -16,7 +16,7 @@ class PostDet(ObjDetMix, View):
     model = Post
     template = 'blog/post_det.html'
     com = True
-
+    Comments
 
 class PostCreate(ObjCreateMix, View):
     form = PostForm
